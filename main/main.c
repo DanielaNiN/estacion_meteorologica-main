@@ -39,7 +39,7 @@ fotoresistor_config_t cfg = {
     .num_samples = 32,
     .filter_size = 10
 };
-
+        //crear cola donde se guardan todas las variables de salida
 typedef struct {
     float temperatura;
     float altura;
@@ -75,16 +75,15 @@ static void tarea_sensores(void *pvParameters)
     while (1)
     {
         paquete.temperatura = fotoresistor_read_lux(fotorresistencia);
-        paquete.altura = fotoresistor_read_lux(fotorresistencia);
+        paquete.altura =1;
         paquete.luz = fotoresistor_read_lux(fotorresistencia);
-        paquete.velocidad = fotoresistor_read_lux(fotorresistencia);
+        paquete.velocidad = 1;
 
         xQueueSend(colaSensores, &paquete, portMAX_DELAY);
 
         vTaskDelay(pdMS_TO_TICKS(500));
     }
 }
-
 
 void app_main(void)
 {   
@@ -106,7 +105,7 @@ void app_main(void)
     while(1){
         porcentaje=fotoresistor_read_percentage(fotorresistencia);
         lux=fotoresistor_read_lux(fotorresistencia);
-        //printf("porcentaje: %.2f\n lux: %i\n",porcentaje,lux);
+        printf("porcentaje: %.2f\n lux: %i\n",porcentaje,lux);
         vTaskDelay(pdMS_TO_TICKS(500));
     }
 }
