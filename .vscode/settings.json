@@ -3,7 +3,8 @@
   "idf.espIdfPathWin": "c:\\Esp32_Idf\\Espressif\\frameworks\\esp-idf-v5.4.1",
   "idf.pythonInstallPath": "c:\\Esp32_Idf\\Espressif\\tools\\tools\\idf-python\\3.11.2\\python.exe",
   "idf.openOcdConfigs": [
-    "board/esp32s3-builtin.cfg"
+    "interface/ftdi/esp32_devkitj_v1.cfg",
+    "target/esp32s3.cfg"
   ],
   "idf.portWin": "COM8",
   "idf.toolsPathWin": "c:\\Esp32_Idf\\Espressif\\tools",
@@ -17,5 +18,9 @@
     "--compile-commands-dir=${workspaceFolder}\\build"
   ],
   "idf.flashType": "UART",
-  "idf.currentSetup": "C:/Espressif/frameworks/esp-idf-v5.5/"
+  "idf.currentSetup": "C:/Espressif/frameworks/esp-idf-v5.5/",
+  "files.associations": {
+    "uart.h": "c",
+    "adc_cali_scheme.h": "c"
+  }
 }
